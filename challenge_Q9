@@ -1,0 +1,35 @@
+Q9 Shortest distance in a Plane — CROSS JOIN, SQRT, POW
+
+9. Write a query to find the shortest distance between these points rounded to 2 decimals.
+
+-- Write a query to find the shortest distance between these points rounded to 2 decimals.
+ 
+
+-- | x  | y  |
+-- |----|----|
+-- | -1 | -1 |
+-- | 0  | 0  |
+-- | -1 | -2 |
+ 
+
+-- The shortest distance is 1.00 from point (-1,-1) to (-1,2). So the output should be:
+ 
+
+-- | shortest |
+-- |----------|
+-- | 1.00     |
+ 
+
+-- Note: The longest distance among all the points are less than 10000.
+
+
+SOLUTION:
+
+SELECT ROUND(a.shortest,2) as shortest
+FROM (
+        SELECT SQRT(POW((p1.x-p2.x),2)+POW((p1.y-p2.y),2)) as shortest
+        FROM point_2d AS p1
+        CROSS JOIN point_2d AS p2
+        WHERE p1.x!=p2.x OR p1.y!=p2.y
+        ORDER BY SQRT(POW((p1.x-p2.x),2)+POW((p1.y-p2.y),2))
+        LIMIT 1) AS a
