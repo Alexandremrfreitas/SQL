@@ -1,6 +1,6 @@
-1. 
+https://towardsdatascience.com/10-problems-to-practice-almost-all-sql-concepts-37545e7c5219
 
-Given two tables below, write a query to display the comparison result (higher/lower/same) of the average salary of employees in a department to the company’s average salary.
+1. Given two tables below, write a query to display the comparison result (higher/lower/same) of the average salary of employees in a department to the company’s average salary.
 
 -- Table: salary
 -- | id | employee_id | amount | pay_date   |
